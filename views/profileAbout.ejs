@@ -1,0 +1,119 @@
+<div class="row profile">
+    <div class="col-md-3">
+        <div class="profile-sidebar">
+            <div class="profile-image">
+                <% if(profile.image.length == 0) { %>
+                    <img src="/images/tdt_logo.png" class="img-responsive" alt="LOGO TDTU">
+                <% } else {%>
+                    <img src="<%=profile.image%>" class="img-responsive" alt="Ảnh đại diện">
+                <% }%>
+            </div>
+            <div class="profile-user-about">
+                <div class="profile-user-about-name">
+                    <%=profile.name%>
+                </div>
+                <div class="profile-user-about-faculty">
+                    ĐH Tôn Đức Thắng
+                </div>
+                <% if( sameID ) {%>
+                    <div class="profile-user-btn">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#updateAvatar">Đổi ảnh đại diện</button>
+                        <button class="btn btn-success" data-toggle="modal" data-target="#updateInfoUser">Thay đổi thông tin</button>
+                    </div>
+                <% } %>
+            </div>
+            <div class="profile-nav">
+                <ul class="nav">
+                    <li >
+                        <a href="/profile/<%=profile._id%>">
+                        <i class="glyphicon glyphicon-home"></i>
+                        Bài đăng </a>
+                    </li>
+                    <li class="active">
+                        <a href="/profile/about/<%=profile._id%>">
+                        <i class="glyphicon glyphicon-info-sign"></i>
+                        Thông tin </a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- END MENU -->
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div class="profile-info">
+            <div>
+                <p>Khoa: <strong><%=profile.faculty%></strong></p>
+                <p>Lớp: <strong><%=profile.classID%></strong></p>
+                <p>Email: <strong><%=profile.email%></strong></p>
+                <p>Tham gia: <strong><%=profile.created%></strong></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% if( sameID ) {%>
+    <div>
+        <div class="modal" id="updateInfoUser">
+            <div class="modal-dialog ">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" style="text-align: center;">Cập nhật thông tin cá nhân</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="name-edit">Tên hiển thị</label>
+                            <input value="<%=profile.name%>" class="form-control" type="text" placeholder="Nhập tên của bạn" id="name-edit" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="class-edit">Lớp</label>
+                            <input value="<%=profile.classID%>" class="form-control" type="text" placeholder="Nhập lớp" id="class-edit" name="classID">
+                        </div>
+                        <div class="form-group">
+                            <label for="faculty-edit">Khoa</label>
+                            <input value="<%=profile.faculty%>" class="form-control" type="text" placeholder="Nhập tên khoa" id="faculty-edit" name="faculty">
+                        </div>
+                        <div id="message-edit-info">
+                            
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" id='btn-edit-info'>Cập nhật</button>
+                        <button type="button" class="btn btn-dark" data-dismiss="modal">Đóng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="modal" id="updateAvatar">
+            <div class="modal-dialog ">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" style="text-align: center;">Đổi ảnh đại diện</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="area-avatar-update">
+    
+                        </div>
+                        <div class="custom-file mb-3">
+                            <input type="file" class="form-control" id="avatar-upload" name="avatar" required accept="image/*"/>
+                        </div>
+    
+                        <div id="message-change-avatar">
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" id='btn-upload-avatar'>Cập nhật</button>
+                        <button type="button" class="btn btn-dark" data-dismiss="modal">Đóng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<% } %>

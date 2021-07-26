@@ -1,0 +1,97 @@
+<% if(post) {%>
+    <div class="card detail-post" id="<%=post._id%>">
+        <div class="card-header">
+            <div class="d-flex">
+                <div>
+                    <%if(post.creator.image.length > 0){%>
+                        <img src="<%=post.creator.image%>" width="50" class="rounded-circle">
+                    <%} else {%>
+                        <img src="/images/avatar.jpg" width="50" class="rounded-circle">
+                    <% }%>
+                </div>
+                <div class="d-inline-grid">
+                    <b><a href="/profile/<%=post.creator._id%>" title=""><%=post.creator.name%></a></b>
+                    <a href="/posts/detail?id=<%=post._id%>" title="" class="d-smaller"><%=post.created%></a>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <p><%=post.content%></p>
+            <% if(post.image.length > 0){ %>
+                <img src="<%=post.image%>" class="full-width" alt="Image" >
+            <% } %>
+
+            <% if(post.video.length > 0){ %>
+                <iframe width="600" height="500" src="https://www.youtube.com/embed/<%=post.video%>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <% } %>
+            
+        </div>
+        <div class="card-footer">
+            <div class="area-comment">
+                <div>
+                    <%if(user.image.length > 0){%>
+                        <img src="<%=user.image%>" width="50" class="rounded-circle">
+                    <%} else {%>
+                        <img src="/images/avatar.jpg" width="50" class="rounded-circle">
+                    <% }%>
+                </div>
+                <div class="form-group d-90">
+                    <input class="input-comment" type="text" class="form-control" placeholder="Viết bình luận..." id="txt-content-comment" name="contentComment">
+                </div>
+                <div>
+                    <button class="btn btn-info" id="btn-comment-submit" data-id="<%=post._id%>">Gửi</button>
+                </div>
+            </div>
+            <div class="area-list-comment">
+                
+                <% for(var i = post.comments.length - 1 ; i >= 0 ; i--){%>
+                    <div class="item-comment d-flex" id="<%=post.comments[i]._id%>">
+                        <div>
+                            <img src="<%=post.comments[i].creator.image%>" width="50" class="rounded-circle">
+                        </div>
+                        <div class="content-comment">
+                            <div>
+                                <a href="/profile/<%=post.comments[i].creator._id%>"><b><%=post.comments[i].creator.name%></b></a><br>
+                                <span><%=post.comments[i].content%></span>
+                            </div>
+        
+                            <div>
+                                <a href="" role="button"><%=post.comments[i].created%></a>
+                                <% if(post.comments[i].creator._id == user._id){%>
+                                    <a role="button" class="btn-delete-comment" onclick='deleteComment("<%=post.comments[i]._id%>")'>Xóa</a>
+                                <%}%>
+                            </div>
+                        </div>
+                        
+                    </div>
+    
+                <%}%>
+                
+            </div>
+        </div>
+    </div>
+<%}%>
+
+<div class="modal" id="removeComment">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+            <h4 class="modal-title">Xóa bình luận</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body">
+            Bạn có chắc chắn muốn xóa bình luận này không?
+            <div id="message-area-remove-comment">
+
+            </div>
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+            <input type="hidden" name='idComment' id="id-comment-remove">
+            <button type="button" class="btn btn-danger" id="btn-remove-comment">Xóa</button>
+        </div>
+        </div>
+    </div>
+</div>

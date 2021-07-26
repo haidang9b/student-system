@@ -1,0 +1,70 @@
+<div class="row justify-content-center">
+    <div class="col-xl-6 col-lg-12 col-md-12 border mt-3 pt-3 rounded mx-3">
+        <div class="form-group text-small">
+            <small><a href="/notifications/manager">Quay lại</a></small>
+        </div>
+        <h1 class="text-success">Cập nhật thông báo</h1>
+        <form  method="POST">
+            <input type="hidden" name="id" value="<%=notify._id%>">
+            <div class="form-group">
+                <label for="title">Tiêu đề<span class="require"></span></label>
+                <input type="text" class="form-control" name="title" required value="<%=notify.title%>"/>
+            </div>
+            
+            <div class="form-group">
+                <label for="description">Nội dung</label>
+                <textarea rows="10" class="form-control" name="content" required ><%=notify.content%></textarea>
+            </div>
+            <div class="form-group">
+                <label for="sel1">Chủ đề:</label>
+                <select class="form-control" id="sel1" name="topic">
+                    <option value="Học vụ">Học vụ</option>
+                    <option value="Sự kiện">Sự kiện</option>
+                    <option value="Đăng ký môn học">Đăng ký môn học</option>
+                    <option value="Thời khóa biểu">Thời khóa biểu</option>
+                    <option value="Tốt nghiệp">Tốt nghiệp</option>
+                    <option value="Học phí">Học phí</option>
+                    <option value="Tuyển dụng">Tuyển dụng</option>
+                    <option value="Phúc khảo">Phúc khảo</option>
+                    <option value="Chính sách - học bổng">Chính sách - học bổng</option>
+                    <option value="Quy chế quy định">Quy chế quy định</option>
+                    <option value="Học phần nghề nghiệp">Học phần nghề nghiệp</option>
+                    <option value="Thông báo khác">Thông báo khác</option>
+                    <option value="<%=notify.topic%>" selected><%=notify.topic%></option>
+                </select>
+            </div>
+            <% if(error.length > 0){%>
+                <div class="alert alert-danger">
+                    <%=error%>
+                </div>
+                <%}%>
+                <% if(success.length > 0){%>
+                    <div class="alert alert-success">
+                        <%=success%>
+                    </div>
+                <%}%>
+            <div class="form-group">
+                <div id="message-upload-file">
+                
+                </div>
+            </div>
+            <div class="form-group">
+                <!-- <button><i class="fas fa-paperclip"></i> Đinhs kèm</button> -->
+                <% if(notify.fileUpload){%>
+                    <% if(notify.fileUpload.length > 0){%>
+                        <input type='hidden' name='fileUpload' class='form-control' value='<%=notify.fileUpload%>'>
+                        <a href="<%=notify.fileUpload%>" download>Tệp đã đính kèm</a>
+                    <% } %>
+                <% } %>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">
+                    Cập nhật
+                </button>
+                <button class="btn btn-default" type="reset">
+                    Nhập lại
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

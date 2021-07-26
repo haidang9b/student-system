@@ -1,0 +1,94 @@
+<h1 class="my-5 text-primary text-center text-uppercase">Danh sách tài khoản</h1>
+<a class="btn btn-success btn-sm my-4" href="/account/add">Thêm tài khoản mới</a>
+<p>Danh sách tài khoản phòng khoa đã được cấp</p>
+<!-- quan ly tai khoan do admin cấp -->
+<div > 
+    <table class="table table-striped border">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Tên</th>
+                <th>Username</th>
+                <th>Ngày tạo</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(var i=0; i < listAccount.length; i++){ %>
+                <tr id="<%= listAccount[i].id %>">
+                    <td><%= i+1 %></td>
+                    <td><%= listAccount[i].name %></td>
+                    <td><%= listAccount[i].username %></td>
+                    <td><%= listAccount[i].created %></td>
+                    <td>
+                        <button class="btn btn-sm btn-warning btnUpdateUser" data-id="<%= listAccount[i].id %>" data-name="<%= listAccount[i].name %>" data-user="<%= listAccount[i].username %>">Chỉnh sửa</button>
+                        <button class="btn btn-sm btn-danger btnDeleteUser" data-id="<%= listAccount[i].id %>" data-name="<%= listAccount[i].name %>">Xóa</button>
+                    </td>
+                </tr>
+            <% } %>
+            
+        </tbody>
+    </table>
+</div>
+
+<div class="modal" id="removeAccount">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+            <h4 class="modal-title">Xóa tài khoản Khoa/Phòng ban</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body">
+            Bạn có chắc rằng muốn xóa <strong id="name-account-remove">ABCXYZ</strong> không?
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+            <input type="hidden" name='idUser' id="id-user-remove">
+            <button type="button" class="btn btn-danger" id="btn-remove-user">Xóa</button>
+            <button type="button" class="btn btn-dark" data-dismiss="modal">Đóng</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <div class="modal" id="updateAccount">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" style="text-align: center;">Cập nhật tài khoản</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="name">Tên Khoa/Phòng Ban</label>
+                        <input value="Khoa Công nghệ thông tin" class="form-control" type="text" placeholder="Vui lòng nhập tên Khoa/Phòng Ban" id="name-account-update" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input class="form-control" type="text" placeholder="Nhập username" id="username-account-update" name="username">
+                    </div>
+                    <div class="form-group">
+                        <label for="pass">Mật khẩu</label>
+                        <input value="" class="form-control" type="password" placeholder="Nhập mật khẩu" id="pass-edit-account" name="pass">
+                    </div>
+                    <div class="form-group">
+                        <label for="pass2">Nhập lại Mật khẩu</label>
+                        <input value="" class="form-control" type="password" placeholder="Nhập lại mật khẩu" id="pass2-edit-account" name="pass2">
+                    </div>
+                    <div class="alert alert-danger" id="error-edit">
+                        Vui lòng nhập đầy đủ thông tin
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" name="id" value="0000" id="id-update">
+                    <button type="submit" class="btn btn-primary" id='btn-edit-user'>Cập nhật</button>
+                    <button type="button" class="btn btn-dark" data-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

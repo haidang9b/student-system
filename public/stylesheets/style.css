@@ -1,0 +1,354 @@
+.navbar-white{
+    background: white;
+    color: red;
+    -webkit-box-shadow: 1px 1px 3px 4px #ccc;
+    -moz-box-shadow:    1px 1px 3px 4px #ccc;
+    box-shadow:         1px 1px 3px 4px #ccc;
+}
+.navbar-white img{
+    width: 100%;
+}
+.navbar-white a{
+    color: #337ab7;
+    font-weight: 400;
+}
+.active a{
+    background: #eeeeee;
+    color: #23527c;
+}
+body{
+    background: #f0f2f5;
+}
+.rounded-image {
+    border-radius: 50% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px
+}
+.inputs{
+    margin: auto;
+    display: flex;
+}
+.btn-login-form{
+    text-align: center;
+}
+.btn-login-form button{
+    min-width: 80%;
+}
+#body-login{
+    background: url(/images/login.jpg) no-repeat;
+    background-position:  center;
+    background-size: cover;
+    height: 100vh;
+}
+
+#form-login{
+    background-color: white;
+    opacity: 0.9;
+}
+
+.title-post {
+    text-align: center;
+    
+}
+.title-post h1 {
+    font-weight: bold;
+    color: #0061AD;
+}
+
+.nameOwned-time {
+    float: right;
+}
+
+.content-post{
+    white-space: pre-line;
+    margin-top: 30px;
+    font-size: 20.0pt;
+    font-family: "Times New Roman",serif;
+}
+#success-notification{
+    bottom: 20px; 
+    float: left;
+    margin-left: 30px;
+    left: 20px
+}
+#warning-notification{
+    bottom: 20px; 
+    float: left;
+    margin-left: 30px;
+    left: 20px
+}
+
+.card-faculty{
+    background: white;
+    text-align: center;
+    margin-top: 16px;
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 4px;
+}
+
+.card-faculty img {
+    border-radius: 2%;
+    width:100%
+}
+.body-error{
+    text-align: center;
+}
+#error-edit{
+    display: none;
+}
+
+.profile-sidebar{
+    background: white;
+    border-radius: 6px;
+}
+
+.profile-image img {
+    padding-top: 10px;
+    float: none;
+    margin: 0 auto;
+    width: 50%;
+    height: 50%;
+
+}
+.profile-user-about-name{
+    font-weight: bold;
+    color: green;
+    text-align:  center;
+}
+.profile-user-about-name{
+    font-weight: bold;
+    color: green;
+    text-align:  center;
+}
+.profile-user-about-faculty{
+    font-weight: bold;
+    color: skyblue  ;
+    text-align:  center;
+}
+
+.profile-content{
+    border-radius: 6px;
+}
+
+.profile-info{
+    background: white;
+    border-radius: 6px;
+    padding: 6px;   
+}
+.navbar-nav .active{
+    color: #5b9bd1;
+    background-color: #f6f9fb;
+    border-bottom: 2px solid #5b9bd1;
+    
+}
+.profile-nav .active a{
+    
+    color: #5b9bd1;
+    background-color: #f6f9fb;
+    border-left: 2px solid #5b9bd1;
+    border-radius: 0 6px 6px 0;
+    margin-left: -2px;
+}
+.notify-index{
+    background: white;
+    border-radius: 6px;
+    padding: 6px;
+    /* background: red; */
+}
+
+.name-faculty-card{
+    white-space: nowrap; 
+    width: 100%; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+.profile-user-btn{
+    text-align: center;
+}
+.profile-user-btn button{
+    margin-bottom: 4px;
+}
+
+.updateAvatar{
+    margin-left: 4px;
+    margin-top: 4px;
+}
+#area-avatar-update img{
+    width: 100%;
+}
+.tag-topic{
+    margin-top: 20px;
+}
+
+.full-width{
+    width: 100%;
+}
+.full-height{
+    height: 100%;
+}
+.modal-header{
+    text-align: center;
+}
+.insert-in-publish{
+    display: flex;
+}
+.responsive-iframe{
+    width: 100%;
+    height: auto;
+}
+
+.d-inline-grid{
+    padding-left: 10px;
+    display: inline-grid;
+}
+.d-flex{
+    display: flex;
+}
+
+.item-post{
+    padding: 10px;
+    background: white;
+    border-radius: 10px;
+    margin-bottom: 16px;
+}
+.item-post iframe{
+    width: 100%;
+}
+.item-post p{
+    font-size: medium;
+    margin-left: 6px;
+    margin-right: 6px;
+    white-space: pre-line
+}
+.creator-item-post{
+    margin: 6px;
+    /* border-bottom: 0.5px #eeeeee solid; */
+}
+
+.btn-open-comment {
+    align-items: center;
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top:1%;
+    margin-bottom: 2%;
+}
+.cmt-post{
+    border-top: 0.5px #eee solid;
+}
+.d-smaller{
+    font-size: smaller;
+}
+
+.rounded-circle {
+    border-radius: 50% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    margin-bottom: 2px;
+}
+
+.d-float{
+    display: flex;
+
+}
+
+.detail-post{
+    background: white;
+    padding: 16px;
+    border-radius: 6px;
+}
+
+.detail-post .card-header{
+    border-bottom: 0.8px #eee solid;
+}
+
+.detail-post p{
+    white-space: pre-line;
+    font-size: medium;
+}
+.profile-sidebar{
+    margin-bottom: 10px;
+}
+
+.detail-post .card-footer{
+    margin-top: 4px;
+    padding-top: 4px;
+    border-top: 0.8px #eee solid;
+}
+.detail-post iframe{
+    width: 100%;
+}
+.modal-body{
+    max-height: calc(100vh - 210px);
+    overflow-y: auto;
+}
+.d-90{
+    width: 90%;
+}
+.d-90 input{
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    width: 95%;
+    margin-left: 2%;
+    margin-right: 2%;
+    padding: 6px;
+}
+.area-comment{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+
+}
+.body-error{
+    text-align: center;
+}
+.body-error img{
+    width: 30%;
+}
+.body-error b{
+    font-size: larger;
+    text-align: center;
+}
+
+.body-error p{
+    text-align: center;
+    font-size: large;
+}
+.item-comment{
+    padding: 4px;
+}
+.content-comment{
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    background: #eee;
+    border-radius: 10px;
+}
+.btn-delete-comment{
+    margin-left: 10px;
+}
+
+.area-list-comment span{
+    white-space: pre-line;
+}
+.tag-content-cmt{
+    white-space: pre-line;
+}
+#btnCreatePost{
+    margin-bottom: 10px;
+}
+.card-footer{
+    padding-top: 8px;
+    margin-top: 8px;
+}

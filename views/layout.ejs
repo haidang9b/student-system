@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%=(typeof title != "undefined" ? title : "")%></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="/javascripts/main.js"></script>
+  <link rel="stylesheet" href="/stylesheets/style.css"/>
+  <nav class="navbar navbar-white">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">ĐH Tôn Đức Thắng</a>
+      </div>
+      <ul class="nav navbar-nav " id="my-navbar">
+        <li class="btn-navbar" id="btn-home"><a href="/">Trang chủ</a></li>
+        <li class="dropdown btn-navbar" id="btn-notify"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Thông báo<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/notifications">Tất cả thông báo</a></li>
+            <li><a href="/notifications/faculty">Phòng ban</a></li>
+            <%if(user.role){%>
+              <% if(user.role !== 'student'){%>
+                <li><a href="/notifications/manager">Quản lý bài đăng</a></li>
+                <% }%>
+            <%}%>
+          </ul>
+        </li>
+  
+        <%if(user.role){%>
+          <% if( user.role === 'admin') { %>
+              <li class="btn-navbar" id="btn-account"><a href="/account">Tài khoản</a></li>
+          <% } %>
+
+          <% if(user.role !== 'student'){%>
+            <li class="btn-navbar" id="btn-setting"><a href="/setting/resetPassword">Cài đặt</a></li>
+            <% }%>
+        <%}%>
+        
+
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/profile"><span class="glyphicon glyphicon-user"></span> <%=user.name%></a></li>
+        <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Đăng xuất</a></li>
+      </ul>
+    </div>
+  </nav>
+</head>
+<body>
+
+
+  
+<div class="container">
+  <div id="message-socket-io">
+    
+  </div>
+  <%-body%>
+</div>
+<div id="success-notification" class="alert alert-success d-inline small" >
+<div id="warning-notification" class="alert alert-danger d-inline small" ></div>
+</div>
+</body>
+
+
+</html>

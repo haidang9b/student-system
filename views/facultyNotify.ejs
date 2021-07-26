@@ -1,0 +1,38 @@
+<h1 class="my-5 text-primary text-center text-uppercase">Danh sách thông báo của <%=title%></h1>
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination">
+        <% for (var i = 1; i<= maximum; i++){%>
+            <li class="page-item"><a class="page-link" href="/notifications/faculty/<%=idURL%>?page=<%=i%>"><%=i%></a></li>
+        <% }%>
+    </ul>
+</nav>
+<div>
+    Danh sách từ <strong><%=count[0]%></strong> đến <strong><%=count[count.length-1]%></strong> / Chọn một dòng bất kì để xem chi tiết
+    
+    
+</div>
+<div > 
+    <table class="table table-striped border">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Tiêu đề</th>
+                <th>Chủ đề</th>
+                <th>Ngày tạo</th>
+                <th>Khoa</th>
+            </tr>
+        </thead>
+        <tbody id="table-notify-all">
+            <% for(var i = 0; i < result.length; i++){%>
+                <tr class='clickable-row' data-href='/notifications/detail?id=<%=result[i]._id%>'>
+                    <td><%=count[i]%></td>
+                    <td><a href="/notifications/detail?id=<%=result[i]._id%>"><%=result[i].title%></a></td>
+                    <td><%=result[i].topic%></td>
+                    <td><%=result[i].created%></td>
+                    <td><%=result[i].creator.name%></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</div>

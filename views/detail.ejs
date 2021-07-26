@@ -1,0 +1,13 @@
+<div class="title-post"><h1><%=notify.title%></h1></div>
+<div class="nameOwned-time"> <i><a href=""><%=notify.creator.name%></a></i> | <i><a href="#">Ngày đăng <%=notify.created%></a></i> </div>
+<div class="content-post"><%=notify.content%></div>
+
+<% if(notify.fileUpload){%>
+    <a href="<%=notify.fileUpload%>" target="_blank">Tệp đính kèm</a>
+<% }%>
+
+<div class="tag-topic">
+    <strong>Chủ đề:</strong>
+    <a href=""><%=notify.topic%></a>
+    
+</div>

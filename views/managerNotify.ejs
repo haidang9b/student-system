@@ -1,0 +1,59 @@
+<h1 class="my-5 text-primary text-center text-uppercase">Danh sách thông báo</h1>
+<a class="btn btn-success btn-sm my-4" href="/notifications/manager/add">Tạo thông báo</a>
+<p>Danh sách thông báo của tài khoản <strong><%= user.name%></strong> đã đăng</p>
+<!-- quan ly tai khoan do admin cấp -->
+<div > 
+    <table class="table table-striped border">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Tiêu đề</th>
+                <th>Chủ đề</th>
+                <th>Ngày tạo</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if(data){%>
+                <% for(var i = 0; i< data.length; i++) { %>
+                <tr id="<%=data[i]._id%>">
+                    <td><%=i+1%></td>
+                    <td><%=data[i].title%></td>
+                    <td><%=data[i].topic%></td>
+                    <td><%=data[i].created%></td>
+                    <td>
+                        <button class="btn btn-sm btn-warning btnUpdateNotify" onclick="location.href = '/notifications/manager/edit/<%= data[i]._id %>'">Chỉnh sửa</button>
+                        <button class="btn btn-sm btn-danger btnDeleteNotify" data-id="<%= data[i]._id %>" data-title="<%=data[i].title %>">Xóa</button>
+                    </td>
+                </tr>
+                <% } %>
+            <%}%>
+        </tbody>
+    </table>
+</div>
+
+
+<div class="modal" id="removeNotify">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+            <h4 class="modal-title">Xóa thông báo</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <!-- Modal body -->
+        <div class="modal-body">
+            Bạn có chắc rằng muốn xóa thông báo <strong id="title-notify-remove">ABCXYZ</strong> không?
+            <div id="message-area-removeNotify">
+
+            </div>
+        </div>
+        <!-- Modal footer -->
+        <div class="modal-footer">
+            <input type="hidden" name='idNotify' id="id-notify-remove">
+            <button type="button" class="btn btn-danger" id="btn-remove-notify">Xóa</button>
+            <button type="button" class="btn btn-dark" data-dismiss="modal">Đóng</button>
+        </div>
+        </div>
+    </div>
+</div>
