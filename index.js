@@ -60,7 +60,7 @@ app.use((err, req, res, next) => {
     res.render('error',{layout: false});
 });
 
-var connectString = 'mongodb+srv://mxhtdt:Xu12021998@cluster0.cqz3j.mongodb.net/mxhTDTU?retryWrites=true&w=majority'
+var connectString = `${process.env.CONNECTION_STRING}`
 mongoose.connect(connectString, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
